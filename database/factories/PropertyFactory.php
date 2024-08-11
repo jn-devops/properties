@@ -2,8 +2,8 @@
 
 namespace Homeful\Properties\Database\Factories;
 
-use Illuminate\Database\Eloquent\Factories\Factory;
 use Homeful\Properties\Models\Property;
+use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PropertyFactory extends Factory
 {
@@ -12,7 +12,7 @@ class PropertyFactory extends Factory
     public function definition()
     {
         return [
-            'code' => $this->faker->word()
+            'code' => $this->faker->word(),
         ];
     }
 }

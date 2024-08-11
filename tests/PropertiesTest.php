@@ -1,8 +1,8 @@
 <?php
 
+use Homeful\Properties\Models\Property;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Homeful\Properties\Models\Property;
 
 uses(RefreshDatabase::class, WithFaker::class);
 
