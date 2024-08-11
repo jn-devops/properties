@@ -3,17 +3,16 @@
 namespace Homeful\Properties\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Homeful\Properties\Models\Property;
 
-/*
-class ModelFactory extends Factory
+class PropertyFactory extends Factory
 {
-    protected $model = YourModel::class;
+    protected $model = Property::class;
 
     public function definition()
     {
         return [
-
+            'code' => $this->faker->word()
         ];
     }
 }
-*/
