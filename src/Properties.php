@@ -2,6 +2,4 @@
 
 namespace Homeful\Properties;
 
-class Properties
-{
-}
+class Properties {}
