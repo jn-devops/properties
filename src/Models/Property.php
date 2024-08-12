@@ -3,9 +3,9 @@
 namespace Homeful\Properties\Models;
 
 use Homeful\Common\Traits\HasPackageFactory as HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Model;
 use Homeful\Products\Models\Product;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 /**
  * Class Product
@@ -23,7 +23,7 @@ class Property extends Model
 
     protected $fillable = [
         'code',
-        'sku'
+        'sku',
     ];
 
     public function product(): BelongsTo

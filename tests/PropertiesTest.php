@@ -1,9 +1,9 @@
 <?php
 
+use Homeful\Products\Models\Product;
+use Homeful\Properties\Models\Property;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
-use Homeful\Properties\Models\Property;
-use Homeful\Products\Models\Product;
 
 uses(RefreshDatabase::class, WithFaker::class);
 
