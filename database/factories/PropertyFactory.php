@@ -2,8 +2,8 @@
 
 namespace Homeful\Properties\Database\Factories;
 
-use Homeful\Properties\Models\Property;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Homeful\Properties\Models\Property;
 
 class PropertyFactory extends Factory
 {

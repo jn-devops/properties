@@ -17,7 +17,7 @@ class PropertiesServiceProvider extends PackageServiceProvider
          */
         $package
             ->name('properties')
-            ->hasConfigFile(['properties'])
+            ->hasConfigFile(['data','properties'])
             ->hasViews()
             ->hasMigration('create_properties_table')
             ->hasCommand(PropertiesCommand::class);

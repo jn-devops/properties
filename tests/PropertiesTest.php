@@ -1,11 +1,18 @@
 <?php
 
-use Homeful\Products\Models\Product;
-use Homeful\Properties\Models\Property;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
+use Homeful\Properties\Data\PropertyData;
+use Homeful\Properties\Models\Property;
+use Homeful\Products\Data\ProductData;
+use Homeful\Products\Models\Product;
 
 uses(RefreshDatabase::class, WithFaker::class);
+
+beforeEach(function () {
+    $migration = include 'vendor/jn-devops/products/database/migrations/create_products_table.php.stub';
+    $migration->up();
+});
 
 it('has attributes', function () {
     $property = Property::factory()->create();
@@ -16,16 +23,21 @@ it('has attributes', function () {
 });
 
 it('has a product', function () {
-    $migration = include 'vendor/jn-devops/products/database/migrations/create_products_table.php.stub';
-    $migration->up();
-    $product = Product::factory()->create();
-    $property = Property::factory()->create();
+    $property = Property::factory()->forProduct()->create();
+    if ($property instanceof Property) {
+        expect($property->product)->toBeInstanceOf(Product::class);
+        expect($property->sku)->toBe($property->product->sku);
+    }
+});
 
-    if (($product instanceof Product) && ($property instanceof Property)) {
-        expect($property->product)->toBeNull();
-        $property->sku = $product->sku;
-        $property->save();
-        $property->refresh();
-        expect($property->product->is($product))->toBeTrue();
+it('has data', function() {
+    $property = Property::factory()->forProduct()->create();
+    $data = PropertyData::fromModel($property);
+    if ($property instanceof Property) {
+        expect($data->code)->toBe($property->code);
+        expect($data->sku)->toBe($property->sku);
+        with(ProductData::fromModel($property->product), function (ProductData $product_data) use ($data) {
+            expect($data->product->toArray())->toBe($product_data->toArray());
+        });
     }
 });

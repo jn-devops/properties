@@ -3,9 +3,9 @@
 namespace Homeful\Properties\Models;
 
 use Homeful\Common\Traits\HasPackageFactory as HasFactory;
-use Homeful\Products\Models\Product;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Model;
+use Homeful\Products\Models\Product;
 
 /**
  * Class Product
