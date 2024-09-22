@@ -2,6 +2,10 @@
 
 All notable changes to `properties` will be documented in this file.
 
+## #v1.3.2 - 2024-09-22
+
+refactored property model, created project model
+
 ## #v1.3.1 - 2024-09-17
 
 handle null on setter
