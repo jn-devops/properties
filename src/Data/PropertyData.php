@@ -2,6 +2,7 @@
 
 namespace Homeful\Properties\Data;
 
+use Homeful\Properties\Data\ProjectData;
 use Homeful\Properties\Models\Property;
 use Homeful\Products\Data\ProductData;
 use Spatie\LaravelData\Data;
@@ -37,6 +38,7 @@ class PropertyData extends Data
         public string $project_address,
         public string $sku,
         public ProductData $product,
+        public ProjectData $project
     ) {}
 
     public static function fromModel(Property $property): PropertyData
@@ -69,7 +71,8 @@ class PropertyData extends Data
             project_location: $property->project_location,
             project_address: $property->project_address,
             sku: $property->sku,
-            product: ProductData::fromModel($property->product)
+            product: ProductData::fromModel($property->product),
+            project: ProjectData::fromModel($property->project)
         );
     }
 }

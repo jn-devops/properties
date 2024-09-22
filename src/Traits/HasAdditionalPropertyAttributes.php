@@ -4,7 +4,7 @@ namespace Homeful\Properties\Traits;
 
 use Homeful\Properties\Models\Property;
 
-trait HasAdditionalAttributes
+trait HasAdditionalPropertyAttributes
 {
     const PHASE_FIELD = 'phase';
     const BLOCK_FIELD = 'block';
@@ -26,7 +26,9 @@ trait HasAdditionalAttributes
     const PARKING_SLOTS_FIELD = 'parking_slots';
     const CARPORTS_FIELD = 'carports';
     const PROJECT_CODE = 'project_code';
+    /* @deprecated */
     const PROJECT_LOCATION = 'project_location';
+    /* @deprecated */
     const PROJECT_ADDRESS = 'project_address';
 
     public function initializeHasAdditionalAttributes(): void
@@ -313,6 +315,7 @@ trait HasAdditionalAttributes
         return $this->getAttribute('meta')->get(Property::PROJECT_CODE) ?? '';
     }
 
+    /* @deprecated */
     public function setProjectLocationAttribute(?string $value): self
     {
         if ($value === null) {
@@ -322,11 +325,13 @@ trait HasAdditionalAttributes
         return $this;
     }
 
+    /* @deprecated */
     public function getProjectLocationAttribute(): ?string
     {
         return $this->getAttribute('meta')->get(Property::PROJECT_LOCATION) ?? '';
     }
 
+    /* @deprecated */
     public function setProjectAddressAttribute(?string $value): self
     {
         if ($value === null) {
@@ -336,6 +341,7 @@ trait HasAdditionalAttributes
         return $this;
     }
 
+    /* @deprecated */
     public function getProjectAddressAttribute(): ?string
     {
         return $this->getAttribute('meta')->get(Property::PROJECT_ADDRESS) ?? '';

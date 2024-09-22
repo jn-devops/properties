@@ -18,10 +18,20 @@ return new class extends Migration
             $table->schemalessAttributes('meta');
             $table->timestamps();
         });
+
+        Schema::create('projects', function (Blueprint $table) {
+            $table->id();
+            $table->string('code')->unique();
+            $table->string('name')->unique();
+            $table->string('location')->index();
+            $table->schemalessAttributes('meta');
+            $table->timestamps();
+        });
     }
 
     public function down(): void
     {
         Schema::dropIfExists('properties');
+        Schema::dropIfExists('projects');
     }
 };

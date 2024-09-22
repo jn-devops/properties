@@ -1,9 +1,9 @@
 <?php
 
+use Homeful\Properties\Data\{ProjectData, PropertyData};
 use Illuminate\Foundation\Testing\RefreshDatabase;
+use Homeful\Properties\Models\{Project, Property};
 use Illuminate\Foundation\Testing\WithFaker;
-use Homeful\Properties\Data\PropertyData;
-use Homeful\Properties\Models\Property;
 use Homeful\Products\Data\ProductData;
 use Homeful\Products\Models\Product;
 
@@ -14,7 +14,7 @@ beforeEach(function () {
     $migration->up();
 });
 
-it('has attributes', function () {
+test('property has attributes', function () {
     $property = Property::factory()->create();
     if ($property instanceof Property) {
         expect($property->code)->toBeString();
@@ -41,13 +41,13 @@ it('has attributes', function () {
         expect($property->parking_slots)->toBeInt();
         expect($property->carports)->toBeInt();
         expect($property->project_code)->toBeString();
-        expect($property->project_location)->toBeString();
-        expect($property->project_address)->toBeString();
+//        expect($property->project_location)->toBeString();
+//        expect($property->project_address)->toBeString();
         expect($property->sku)->toBeString();
     }
 });
 
-it('has a product', function () {
+test('property has a product', function () {
     $property = Property::factory()->forProduct()->create();
     if ($property instanceof Property) {
         expect($property->product)->toBeInstanceOf(Product::class);
@@ -55,8 +55,16 @@ it('has a product', function () {
     }
 });
 
-it('has data', function() {
-    $property = Property::factory()->forProduct()->create();
+test('property has a project', function () {
+    $property = Property::factory()->forProject()->create();
+    if ($property instanceof Property) {
+        expect($property->project)->toBeInstanceOf(Project::class);
+        expect($property->project_code)->toBe($property->project->code);
+    }
+});
+
+test('property has data', function() {
+    $property = Property::factory()->forProduct()->forProject()->create();
     $data = PropertyData::fromModel($property);
     if ($property instanceof Property) {
         expect($data->code)->toBe($property->code);
@@ -83,11 +91,14 @@ it('has data', function() {
         expect($data->parking_slots)->toBe($property->parking_slots);
         expect($data->carports)->toBe($property->carports);
         expect($data->project_code)->toBe($property->project_code);
-        expect($data->project_location)->toBe($property->project_location);
-        expect($data->project_address)->toBe($property->project_address);
+//        expect($data->project_location)->toBe($property->project_location);
+//        expect($data->project_address)->toBe($property->project_address);
         expect($data->sku)->toBe($property->sku);
         with(ProductData::fromModel($property->product), function (ProductData $product_data) use ($data) {
             expect($data->product->toArray())->toBe($product_data->toArray());
+        });
+        with(ProjectData::fromModel($property->project), function (ProjectData $project_data) use ($data) {
+            expect($data->project->toArray())->toBe($project_data->toArray());
         });
     }
 });
