@@ -11,7 +11,10 @@ class ProjectData extends Data
         public string $code,
         public string $name,
         public string $location,
-        public string $address,
+        public string $type,
+        public string $licenseNumber,
+        public string $licenseDate,
+        public ?string $address,
     ) {}
 
     public static function fromModel(Project $project): ProjectData
@@ -20,7 +23,10 @@ class ProjectData extends Data
             code: $project->code,
             name: $project->name,
             location: $project->location,
-            address: $project->address
+            type: $project->type->getName(),
+            licenseNumber: $project->licenseNumber,
+            licenseDate: $project->licenseDate->format('Y-m-d'),
+            address: $project->address ?? ''
         );
     }
 }

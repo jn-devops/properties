@@ -2,8 +2,10 @@
 
 namespace Homeful\Properties\Models;
 
+use Carbon\Carbon;
 use Homeful\Properties\Traits\HasAdditionalProjectAttributes;
 use Homeful\Common\Traits\HasPackageFactory as HasFactory;
+use Homeful\Property\Enums\{HousingType, MarketSegment};
 use Illuminate\Database\Eloquent\Model;
 use Homeful\Common\Traits\HasMeta;
 
@@ -15,6 +17,10 @@ use Homeful\Common\Traits\HasMeta;
  * @property string $name
  * @property string $location
  * @property string $address
+ * @property MarketSegment $type
+ * @property HousingType $housingType
+ * @property string $licenseNumber
+ * @property Carbon $licenseDate
  *
  * @method int getKey()
  */

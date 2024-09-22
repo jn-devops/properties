@@ -2,9 +2,8 @@
 
 namespace Homeful\Properties\Models;
 
-use Homeful\Common\Traits\HasPackageFactory as HasFactory;
 use Homeful\Properties\Traits\HasAdditionalPropertyAttributes;
-use Spatie\SchemalessAttributes\SchemalessAttributes;
+use Homeful\Common\Traits\HasPackageFactory as HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Model;
 use Homeful\Products\Models\Product;
