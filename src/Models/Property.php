@@ -2,9 +2,8 @@
 
 namespace Homeful\Properties\Models;
 
+use Homeful\Properties\Traits\HasAdditionalPropertyAttributes;
 use Homeful\Common\Traits\HasPackageFactory as HasFactory;
-use Homeful\Properties\Traits\HasAdditionalAttributes;
-use Spatie\SchemalessAttributes\SchemalessAttributes;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Model;
 use Homeful\Products\Models\Product;
@@ -38,16 +37,15 @@ use Homeful\Common\Traits\HasMeta;
  * @property int $parking_slots
  * @property int $carports
  * @property string $project_code
- * @property string $project_location
- * @property string $project_address
  * @property string $sku
  * @property Product $product
+ * @property Project $project
  *
  * @method int getKey()
  */
 class Property extends Model
 {
-    use HasAdditionalAttributes;
+    use HasAdditionalPropertyAttributes;
     use HasFactory;
     use HasMeta;
 
@@ -62,5 +60,10 @@ class Property extends Model
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class, 'sku', 'sku', 'products');
+    }
+
+    public function project(): BelongsTo
+    {
+        return $this->belongsTo(Project::class, 'project_code', 'code', 'projects');
     }
 }

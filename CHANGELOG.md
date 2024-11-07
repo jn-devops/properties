@@ -2,6 +2,18 @@
 
 All notable changes to `properties` will be documented in this file.
 
+## #v1.3.3 - 2024-09-22
+
+add Project model attributes
+
+## #v1.3.2 - 2024-09-22
+
+refactored property model, created project model
+
+## #v1.3.1 - 2024-09-17
+
+handle null on setter
+
 ## #v1.3.0 - 2024-09-04
 
 add attributes
