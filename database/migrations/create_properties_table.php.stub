@@ -13,7 +13,7 @@ return new class extends Migration
             $table->string('code')->unique();
             $table->string('name')->index();
             $table->string('type');
-            $table->integer('cluster')->nullable();
+            $table->string('cluster')->nullable();
             $table->string('sku')->nullable()->index();
             $table->schemalessAttributes('meta');
             $table->timestamps();
