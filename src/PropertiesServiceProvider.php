@@ -20,6 +20,7 @@ class PropertiesServiceProvider extends PackageServiceProvider
             ->hasConfigFile(['data','properties'])
             ->hasViews()
             ->hasMigration('create_properties_table')
+            ->hasMigration('d_add_status_to_properties_table')
             ->hasCommand(PropertiesCommand::class);
     }
 }
