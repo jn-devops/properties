@@ -2,6 +2,10 @@
 
 All notable changes to `properties` will be documented in this file.
 
+## #v1.4.1 - 2024-11-12
+
+add d_add_status_to_properties_table.php.stub migration table
+
 ## #v1.3.3 - 2024-09-22
 
 add Project model attributes
