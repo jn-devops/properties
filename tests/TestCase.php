@@ -36,5 +36,8 @@ class TestCase extends Orchestra
 
         $migration = include __DIR__.'/../database/migrations/create_properties_table.php.stub';
         $migration->up();
+        $migration = include __DIR__.'/../database/migrations/d_add_status_to_properties_table.php.stub';
+
+        $migration->up();
     }
 }

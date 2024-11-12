@@ -44,6 +44,7 @@ test('property has attributes', function () {
 //        expect($property->project_location)->toBeString();
 //        expect($property->project_address)->toBeString();
         expect($property->sku)->toBeString();
+        expect($property->status)->toBeString();
     }
 });
 

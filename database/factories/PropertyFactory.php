@@ -39,6 +39,7 @@ class PropertyFactory extends Factory
             'project_location' => $this->faker->sentence(),
             'project_address' => $this->faker->sentence(),
             'sku' => $this->faker->word(),
+            'status' => $this->faker->word()
         ];
     }
 }
