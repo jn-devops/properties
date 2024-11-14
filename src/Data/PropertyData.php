@@ -37,8 +37,8 @@ class PropertyData extends Data
         public string $project_location,
         public string $project_address,
         public string $sku,
-        public ProductData $product,
-        public ProjectData $project
+        public ?ProductData $product,
+        public ?ProjectData $project
     ) {}
 
     public static function fromModel(Property $property): PropertyData
@@ -71,8 +71,8 @@ class PropertyData extends Data
             project_location: $property->project_location,
             project_address: $property->project_address,
             sku: $property->sku,
-            product: ProductData::fromModel($property->product),
-            project: ProjectData::fromModel($property->project)
+            product: $property->product == null ? null : ProductData::fromModel($property->product),
+            project: $property->project == null ? null : ProjectData::fromModel($property->project)
         );
     }
 }

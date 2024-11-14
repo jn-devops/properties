@@ -103,3 +103,38 @@ test('property has data', function() {
         });
     }
 });
+
+test('property has nullable property data and project data', function() {
+    $property = Property::factory()->create();
+    expect($property->product)->toBeNull();
+    expect($property->project)->toBeNull();
+    $data = PropertyData::fromModel($property);
+    if ($property instanceof Property) {
+        expect($data->code)->toBe($property->code);
+        expect($data->name)->toBe($property->name);
+        expect($data->type)->toBe($property->type);
+        expect($data->cluster)->toBe($property->cluster);
+        expect($data->phase)->toBe($property->phase);
+        expect($data->block)->toBe($property->block);
+        expect($data->lot)->toBe($property->lot);
+        expect($data->building)->toBe($property->building);
+        expect($data->floor_area)->toBe($property->floor_area);
+        expect($data->lot_area)->toBe($property->lot_area);
+        expect($data->unit_type)->toBe($property->unit_type);
+        expect($data->unit_type_interior)->toBe($property->unit_type_interior);
+        expect($data->house_color)->toBe($property->house_color);
+        expect($data->roof_style)->toBe($property->roof_style);
+        expect($data->end_unit)->toBe($property->end_unit);
+        expect($data->veranda)->toBe($property->veranda);
+        expect($data->balcony)->toBe($property->balcony);
+        expect($data->firewall)->toBe($property->firewall);
+        expect($data->eaves)->toBe($property->eaves);
+        expect($data->bedrooms)->toBe($property->bedrooms);
+        expect($data->toilets_and_bathrooms)->toBe($property->toilets_and_bathrooms);
+        expect($data->parking_slots)->toBe($property->parking_slots);
+        expect($data->carports)->toBe($property->carports);
+        expect($data->product)->toBeNull();
+        expect($data->project)->toBeNull();
+    }
+});
+
