@@ -2,6 +2,10 @@
 
 All notable changes to `properties` will be documented in this file.
 
+## #v1.4.3 - 2024-11-18
+
+fix property product relation
+
 ## #v1.4.2 - 2024-11-14
 
 product data and project data are now optional
