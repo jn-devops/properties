@@ -10,7 +10,7 @@ use Homeful\Products\Models\Product;
 use Homeful\Common\Traits\HasMeta;
 
 /**
- * Class Product
+ * Class Property
  *
  * @property int $id
  * @property string $code
@@ -61,7 +61,7 @@ class Property extends Model
 
     public function product(): BelongsTo
     {
-        return $this->belongsTo(Product::class, 'sku', 'sku', 'products');
+        return $this->belongsTo(Product::class, 'sku', 'sku', 'product');
     }
 
     public function project(): BelongsTo

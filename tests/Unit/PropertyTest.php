@@ -49,11 +49,19 @@ test('property has attributes', function () {
 });
 
 test('property has a product', function () {
-    $property = Property::factory()->forProduct()->create();
+    $property = Property::factory()->forProduct()->create(['id' => 2]);
     if ($property instanceof Property) {
         expect($property->product)->toBeInstanceOf(Product::class);
         expect($property->sku)->toBe($property->product->sku);
     }
+    $property = Property::factory()->create(['sku' => null]);
+    $product = Product::factory()->create();
+    expect($property->product)->toBeNull();
+    $property->product()->associate($product);
+    $property->save();
+    expect($property->sku)->toBe($product->sku);
+    $product->refresh();
+    expect($property->product->is($product))->toBeTrue();
 });
 
 test('property has a project', function () {
