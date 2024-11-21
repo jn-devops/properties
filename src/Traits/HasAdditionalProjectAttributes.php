@@ -16,6 +16,9 @@ trait HasAdditionalProjectAttributes
     const LICENSE_NUMBER = 'license_number';
     const LICENSE_DATE = 'license_date';
 
+    const COMPANY_CODE = 'company_code';
+    const APPRAISED_LOT_VALUE = 'appraised_lot_value';
+
     public function setAddressAttribute(?string $value): self
     {
         $this->getAttribute('meta')->set(Project::ADDRESS, $value);
@@ -84,5 +87,29 @@ trait HasAdditionalProjectAttributes
         $serialized = $this->getAttribute('meta')->get(Project::LICENSE_DATE);
 
         return $serialized ? Carbon::fromSerialized($serialized): null;
+    }
+
+    public function setCompanyCodeAttribute(string $value): self
+    {
+        $this->getAttribute('meta')->set(Project::COMPANY_CODE, $value);
+
+        return $this;
+    }
+
+    public function getCompanyCodeAttribute(): string
+    {
+        return $this->getAttribute('meta')->get(Project::COMPANY_CODE);
+    }
+
+    public function setAppraisedLotValueAttribute(float $value): self
+    {
+        $this->getAttribute('meta')->set(Project::APPRAISED_LOT_VALUE, $value);
+
+        return $this;
+    }
+
+    public function getAppraisedLotValueAttribute(): float
+    {
+        return $this->getAttribute('meta')->get(Project::APPRAISED_LOT_VALUE);
     }
 }

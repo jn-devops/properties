@@ -18,6 +18,8 @@ test('project has attributes', function () {
         expect($project->address)->toBeString();
         expect($project->licenseNumber)->toBeString();
         expect($project->licenseDate)->toBeInstanceOf(Carbon::class);
+        expect($project->company_code)->toBeString();
+        expect($project->appraised_lot_value)->toBeFloat();
     }
 });
 
@@ -32,6 +34,8 @@ test('project has data', function() {
         expect($data->type)->toBe($project->type->getName());
         expect($data->licenseNumber)->toBe($project->licenseNumber);
         expect($data->licenseDate)->toBe($project->licenseDate->format('Y-m-d'));
+        expect($data->company_code)->toBe($project->company_code);
+        expect($data->appraised_lot_value)->toBe($project->appraised_lot_value);
     }
 });
 

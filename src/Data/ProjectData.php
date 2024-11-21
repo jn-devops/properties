@@ -14,7 +14,9 @@ class ProjectData extends Data
         public string $type,
         public string $licenseNumber,
         public string $licenseDate,
-        public ?string $address,
+        public string $company_code,
+        public float $appraised_lot_value,
+        public ?string $address
     ) {}
 
     public static function fromModel(Project $project): ProjectData
@@ -26,6 +28,8 @@ class ProjectData extends Data
             type: $project->type->getName(),
             licenseNumber: $project->licenseNumber,
             licenseDate: $project->licenseDate->format('Y-m-d'),
+            company_code: $project->company_code,
+            appraised_lot_value: $project->appraised_lot_value,
             address: $project->address ?? ''
         );
     }

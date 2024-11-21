@@ -21,6 +21,8 @@ use Homeful\Common\Traits\HasMeta;
  * @property HousingType $housingType
  * @property string $licenseNumber
  * @property Carbon $licenseDate
+ * @property string $company_code
+ * @property float $appraised_lot_value
  *
  * @method int getKey()
  */
@@ -35,5 +37,7 @@ class Project extends Model
         'name',
         'location',
         'address',
+        'company_code',
+        'appraised__lot_value'
     ];
 }
