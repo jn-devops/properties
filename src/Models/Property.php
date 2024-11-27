@@ -58,6 +58,7 @@ class Property extends Model
         'cluster',
         'sku',
         'status',
+        'tcp'
     ];
 
     public function product(): BelongsTo
