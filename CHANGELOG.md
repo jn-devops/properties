@@ -2,6 +2,10 @@
 
 All notable changes to `properties` will be documented in this file.
 
+## #v1.4.6 - 2024-11-27
+
+add tcp in properties fillable
+
 ## #v1.4.5 - 2024-11-27
 
 Add tcp to property model
