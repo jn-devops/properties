@@ -2,6 +2,10 @@
 
 All notable changes to `properties` will be documented in this file.
 
+## #v1.4.5 - 2024-11-27
+
+Add tcp to property model
+
 ## #v1.4.3 - 2024-11-18
 
 fix property product relation
