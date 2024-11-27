@@ -45,6 +45,7 @@ test('property has attributes', function () {
 //        expect($property->project_address)->toBeString();
         expect($property->sku)->toBeString();
         expect($property->status)->toBeString();
+        expect($property->tcp)->toBeFloat();
     }
 });
 
@@ -143,6 +144,7 @@ test('property has nullable property data and project data', function() {
         expect($data->carports)->toBe($property->carports);
         expect($data->product)->toBeNull();
         expect($data->project)->toBeNull();
+        expect($data->tcp)->toBe($property->tcp);
     }
 });
 

@@ -41,6 +41,7 @@ use Homeful\Common\Traits\HasMeta;
  * @property Product $product
  * @property Project $project
  * @property string $status
+ * @property float $tcp
  *
  * @method int getKey()
  */
@@ -56,7 +57,7 @@ class Property extends Model
         'type',
         'cluster',
         'sku',
-        'status'
+        'status',
     ];
 
     public function product(): BelongsTo

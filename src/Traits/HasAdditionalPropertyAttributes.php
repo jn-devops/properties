@@ -30,10 +30,33 @@ trait HasAdditionalPropertyAttributes
     const PROJECT_LOCATION = 'project_location';
     /* @deprecated */
     const PROJECT_ADDRESS = 'project_address';
+    const TCP = 'tcp';
 
     public function initializeHasAdditionalAttributes(): void
     {
-        $this->mergeFillable(['phase', 'block', 'lot', 'building', 'floor_area', 'lot_area']);
+        $this->mergeFillable([
+            'phase',
+            'block',
+            'lot',
+            'building',
+            'floor_area',
+            'lot_area',
+            'unit_type',
+            'unit_type_interior',
+            'house_color',
+            'roof_style',
+            'end_unit',
+            'veranda',
+            'balcony',
+            'firewall',
+            'eaves',
+            'bathrooms',
+            'toilets_and_bathrooms',
+            'parking_slots',
+            'carports',
+            'project_code',
+            'tcp'
+        ]);
     }
 
     public function setPhaseAttribute(?string $value): self
@@ -345,5 +368,19 @@ trait HasAdditionalPropertyAttributes
     public function getProjectAddressAttribute(): ?string
     {
         return $this->getAttribute('meta')->get(Property::PROJECT_ADDRESS) ?? '';
+    }
+
+    public function setTCPAttribute(?float $value): self
+    {
+        if ($value === null) {
+            return $this;
+        }
+        $this->getAttribute('meta')->set(Property::TCP, $value);
+        return $this;
+    }
+
+    public function getTCPAttribute(): ?float
+    {
+        return $this->getAttribute('meta')->get(Property::TCP) ?? 0;
     }
 }
