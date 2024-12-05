@@ -13,7 +13,7 @@ class PropertyData extends Data
         public string $code,
         public string $name,
         public string $type,
-        public int $cluster,
+        public string $cluster,
         public string $phase,
         public string $block,
         public string $lot,

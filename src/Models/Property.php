@@ -16,7 +16,7 @@ use Homeful\Common\Traits\HasMeta;
  * @property string $code
  * @property string $name
  * @property string $type
- * @property int $cluster
+ * @property string $cluster
  * @property string $phase
  * @property string $block
  * @property string $lot
