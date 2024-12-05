@@ -2,6 +2,10 @@
 
 All notable changes to `properties` will be documented in this file.
 
+## #v1.4.7 - 2024-12-05
+
+update contact cluster from int to string
+
 ## #v1.4.6 - 2024-11-27
 
 add tcp in properties fillable
