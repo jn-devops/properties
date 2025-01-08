@@ -15,7 +15,7 @@ class PropertyFactory extends Factory
             'code' => $this->faker->word(),
             'name' => $this->faker->word(),
             'type' => $this->faker->word(),
-            'cluster' => $this->faker->numberBetween(1,10),
+            'cluster' => (string) $this->faker->numberBetween(1,10),
             'phase' => $this->faker->word(),
             'block' => $this->faker->word(),
             'lot' => $this->faker->word(),

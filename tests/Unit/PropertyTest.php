@@ -20,7 +20,7 @@ test('property has attributes', function () {
         expect($property->code)->toBeString();
         expect($property->name)->toBeString();
         expect($property->type)->toBeString();
-        expect($property->cluster)->toBeInt();
+        expect($property->cluster)->toBeString();
         expect($property->phase)->toBeString();
         expect($property->block)->toBeString();
         expect($property->lot)->toBeString();
