@@ -70,3 +70,31 @@ test('project housing type', function () {
         expect($project->housingType)->toBe(HousingType::CONDOMINIUM);
     }
 });
+
+test('persist project using model create', function () {
+    $project = Project::create([
+        'code' => 'PROJ1',
+        'name' => 'Project 1',
+        'location' => 'Sta. Rosa City, Laguna',
+        'address' => 'CALABARZON',
+        'company_code' => 'RLI',
+        'appraised_lot_value' => 1000000
+    ]);
+    $project = Project::create([
+        'code' => 'PROJ2',
+        'name' => 'Project 2',
+        'location' => 'Imus City, Cavite',
+        'address' => 'CALABARZON',
+        'company_code' => 'RLI',
+        'appraised_lot_value' => 1000000
+    ]);
+    //minimum attributes
+    $project = Project::create([
+        'code' => 'PROJ3',
+        'name' => 'Project 3',
+        'location' => 'Nagalang, Pampanga',
+    ]);
+    expect($project)->toBeInstanceOf(Project::class);
+    $data = ProjectData::fromModel($project);
+    expect($data)->toBeInstanceOf(ProjectData::class);
+});

@@ -11,11 +11,11 @@ class ProjectData extends Data
         public string $code,
         public string $name,
         public string $location,
-        public string $type,
-        public string $licenseNumber,
-        public string $licenseDate,
-        public string $company_code,
-        public float $appraised_lot_value,
+        public ?string $type,
+        public ?string $licenseNumber,
+        public ?string $licenseDate,
+        public ?string $company_code,
+        public ?float $appraised_lot_value,
         public ?string $address
     ) {}
 
@@ -27,7 +27,7 @@ class ProjectData extends Data
             location: $project->location,
             type: $project->type->getName(),
             licenseNumber: $project->licenseNumber,
-            licenseDate: $project->licenseDate->format('Y-m-d'),
+            licenseDate: $project->licenseDate?->format('Y-m-d'),
             company_code: $project->company_code,
             appraised_lot_value: $project->appraised_lot_value,
             address: $project->address ?? ''

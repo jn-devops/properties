@@ -15,7 +15,6 @@ trait HasAdditionalProjectAttributes
     const HOUSING_TYPE = 'housing_type';
     const LICENSE_NUMBER = 'license_number';
     const LICENSE_DATE = 'license_date';
-
     const COMPANY_CODE = 'company_code';
     const APPRAISED_LOT_VALUE = 'appraised_lot_value';
 
@@ -96,7 +95,7 @@ trait HasAdditionalProjectAttributes
         return $this;
     }
 
-    public function getCompanyCodeAttribute(): string
+    public function getCompanyCodeAttribute(): ?string
     {
         return $this->getAttribute('meta')->get(Project::COMPANY_CODE);
     }
@@ -108,7 +107,7 @@ trait HasAdditionalProjectAttributes
         return $this;
     }
 
-    public function getAppraisedLotValueAttribute(): float
+    public function getAppraisedLotValueAttribute(): ?float
     {
         return $this->getAttribute('meta')->get(Project::APPRAISED_LOT_VALUE);
     }

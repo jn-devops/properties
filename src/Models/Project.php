@@ -38,6 +38,6 @@ class Project extends Model
         'location',
         'address',
         'company_code',
-        'appraised__lot_value'
+        'appraised_lot_value'
     ];
 }
