@@ -30,9 +30,9 @@ trait HasAdditionalProjectAttributes
         return $this->getAttribute('meta')->get(Project::ADDRESS);
     }
 
-    public function setTypeAttribute(MarketSegment $value): self
+    public function setTypeAttribute(MarketSegment|string $value): self
     {
-        $this->getAttribute('meta')->set(Project::TYPE,  $value->name);
+        $this->getAttribute('meta')->set(Project::TYPE,  $value instanceof MarketSegment ? $value->name : MarketSegment::tryFromName($value));
 
         return $this;
     }
@@ -46,14 +46,14 @@ trait HasAdditionalProjectAttributes
 //        return MarketSegment::{$name}; //PHP 8.3
     }
 
-    public function setHousingTypeAttribute(HousingType $value): self
+    public function setHousingTypeAttribute(HousingType|string|null $value): self
     {
-        $this->getAttribute('meta')->set(Project::HOUSING_TYPE,  $value->name);
+        $this->getAttribute('meta')->set(Project::HOUSING_TYPE,  $value instanceof HousingType ? $value->name : HousingType::tryFromName($value));
 
         return $this;
     }
 
-    public function getHousingTypeAttribute(): HousingType
+    public function getHousingTypeAttribute(): ?HousingType
     {
         $reflection = new ReflectionEnum(HousingType::class);
         $name = $this->getAttribute('meta')->get(Project::HOUSING_TYPE);
@@ -88,7 +88,7 @@ trait HasAdditionalProjectAttributes
         return $serialized ? Carbon::fromSerialized($serialized): null;
     }
 
-    public function setCompanyCodeAttribute(string $value): self
+    public function setCompanyCodeAttribute(?string $value): self
     {
         $this->getAttribute('meta')->set(Project::COMPANY_CODE, $value);
 
@@ -100,7 +100,7 @@ trait HasAdditionalProjectAttributes
         return $this->getAttribute('meta')->get(Project::COMPANY_CODE);
     }
 
-    public function setAppraisedLotValueAttribute(float $value): self
+    public function setAppraisedLotValueAttribute(?float $value): self
     {
         $this->getAttribute('meta')->set(Project::APPRAISED_LOT_VALUE, $value);
 
