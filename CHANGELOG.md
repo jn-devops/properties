@@ -2,6 +2,10 @@
 
 All notable changes to `properties` will be documented in this file.
 
+## #v1.5.0 - 2025-01-17
+
+fix syntax for enum getCase
+
 ## #v1.4.9 - 2025-01-17
 
 set some additional atrtibutes nullable
