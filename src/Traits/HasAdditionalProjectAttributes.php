@@ -32,7 +32,12 @@ trait HasAdditionalProjectAttributes
 
     public function setTypeAttribute(MarketSegment|string $value): self
     {
-        $this->getAttribute('meta')->set(Project::TYPE,  $value instanceof MarketSegment ? $value->name : MarketSegment::tryFromName($value));
+        $reflection = new ReflectionEnum(MarketSegment::class);
+
+        $this->getAttribute('meta')->set(Project::TYPE,  $value instanceof MarketSegment
+            ? $value->name
+            : $reflection->getCase($value)
+        );
 
         return $this;
     }
@@ -48,7 +53,11 @@ trait HasAdditionalProjectAttributes
 
     public function setHousingTypeAttribute(HousingType|string|null $value): self
     {
-        $this->getAttribute('meta')->set(Project::HOUSING_TYPE,  $value instanceof HousingType ? $value->name : HousingType::tryFromName($value));
+        $reflection = new ReflectionEnum(HousingType::class);
+
+        $this->getAttribute('meta')->set(Project::HOUSING_TYPE,  $value instanceof HousingType
+            ? $value->name
+            : $reflection->getCase($value));
 
         return $this;
     }
