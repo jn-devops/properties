@@ -57,6 +57,30 @@ trait HasAdditionalPropertyAttributes
             'project_code',
             'tcp'
         ]);
+
+        $this->appends = array_merge($this->appends, [
+            'phase',
+            'block',
+            'lot',
+            'building',
+            'floor_area',
+            'lot_area',
+            'unit_type',
+            'unit_type_interior',
+            'house_color',
+            'roof_style',
+            'end_unit',
+            'veranda',
+            'balcony',
+            'firewall',
+            'eaves',
+            'bathrooms',
+            'toilets_and_bathrooms',
+            'parking_slots',
+            'carports',
+            'project_code',
+            'tcp'
+        ]);
     }
 
     public function setPhaseAttribute(?string $value): self
