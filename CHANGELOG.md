@@ -2,6 +2,10 @@
 
 All notable changes to `properties` will be documented in this file.
 
+## v1.5.2 - 2025-01-27
+
+dynamic configuration of connection and table
+
 ## #v1.5.1 - 2025-01-20
 
 update appends for Properties model'
