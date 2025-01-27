@@ -40,4 +40,22 @@ class Project extends Model
         'company_code',
         'appraised_lot_value'
     ];
+
+    public function getConnectionName()
+    {
+        $connection = config('properties.models.project.connection');
+
+        return !empty($connection)
+            ? $connection
+            : parent::getConnectionName();
+    }
+
+    public function getTable()
+    {
+        $table = config('properties.models.project.table');
+
+        return !empty($table)
+            ? $table
+            : parent::getTable();
+    }
 }

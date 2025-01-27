@@ -61,6 +61,24 @@ class Property extends Model
         'tcp'
     ];
 
+    public function getConnectionName()
+    {
+        $connection = config('properties.models.property.connection');
+
+        return !empty($connection)
+            ? $connection
+            : parent::getConnectionName();
+    }
+
+    public function getTable()
+    {
+        $table = config('properties.models.property.table');
+
+        return !empty($table)
+            ? $table
+            : parent::getTable();
+    }
+
     public function product(): BelongsTo
     {
         return $this->belongsTo(Product::class, 'sku', 'sku', 'product');
