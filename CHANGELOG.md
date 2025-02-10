@@ -2,6 +2,10 @@
 
 All notable changes to `properties` will be documented in this file.
 
+## v1.5.3 - 2025-02-10
+
+added total_sold on project; added project_description and digital_assets on property
+
 ## v1.5.2 - 2025-01-27
 
 dynamic configuration of connection and table
