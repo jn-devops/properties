@@ -20,6 +20,7 @@ test('project has attributes', function () {
         expect($project->licenseDate)->toBeInstanceOf(Carbon::class);
         expect($project->company_code)->toBeString();
         expect($project->appraised_lot_value)->toBeFloat();
+        expect($project->total_sold)->toBeInt();
     }
 });
 

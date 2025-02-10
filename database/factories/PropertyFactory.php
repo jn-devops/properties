@@ -41,6 +41,8 @@ class PropertyFactory extends Factory
             'sku' => $this->faker->word(),
             'status' => $this->faker->word(),
             'tcp' => $this->faker->numberBetween(750000,850000) * 1.0,
+            'project_description' => $this->faker->word(),
+            'digital_assets' => $this->faker->word(),
         ];
     }
 }

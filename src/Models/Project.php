@@ -23,6 +23,7 @@ use Homeful\Common\Traits\HasMeta;
  * @property Carbon $licenseDate
  * @property string $company_code
  * @property float $appraised_lot_value
+ * @property int $total_sold
  *
  * @method int getKey()
  */

@@ -42,6 +42,8 @@ use Homeful\Common\Traits\HasMeta;
  * @property Project $project
  * @property string $status
  * @property float $tcp
+ * @property string $project_description
+ * @property string $digital_assets
  *
  * @method int getKey()
  */

@@ -21,6 +21,7 @@ class ProjectFactory extends Factory
             'licenseDate' => Carbon::parse($this->faker->date()),
             'company_code' => $this->faker->word(),
             'appraised_lot_value' => $this->faker->numberBetween(2000.0,5000.0),
+            'total_sold' => $this->faker->numberBetween(50, 100),
         ];
     }
 }

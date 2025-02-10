@@ -46,6 +46,8 @@ test('property has attributes', function () {
         expect($property->sku)->toBeString();
         expect($property->status)->toBeString();
         expect($property->tcp)->toBeFloat();
+        expect($property->project_description)->toBeString();
+        expect($property->digital_assets)->toBeString();
     }
 });
 

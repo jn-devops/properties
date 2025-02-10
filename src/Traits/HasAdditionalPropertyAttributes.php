@@ -31,6 +31,8 @@ trait HasAdditionalPropertyAttributes
     /* @deprecated */
     const PROJECT_ADDRESS = 'project_address';
     const TCP = 'tcp';
+    const PROJECT_DESCRIPTION = 'project_description';
+    const DIGITAL_ASSETS = 'digital_assets';
 
     public function initializeHasAdditionalAttributes(): void
     {
@@ -55,7 +57,9 @@ trait HasAdditionalPropertyAttributes
             'parking_slots',
             'carports',
             'project_code',
-            'tcp'
+            'tcp',
+            'project_description',
+            'digital_assets',
         ]);
 
         $this->appends = array_merge($this->appends, [
@@ -79,7 +83,9 @@ trait HasAdditionalPropertyAttributes
             'parking_slots',
             'carports',
             'project_code',
-            'tcp'
+            'tcp',
+            'project_description',
+            'digital_assets',
         ]);
     }
 
@@ -406,5 +412,33 @@ trait HasAdditionalPropertyAttributes
     public function getTCPAttribute(): ?float
     {
         return $this->getAttribute('meta')->get(Property::TCP) ?? 0;
+    }
+
+    public function setProjectDescriptionAttribute(?string $value): self
+    {
+        if ($value === null) {
+            return $this;
+        }
+        $this->getAttribute('meta')->set(Property::PROJECT_DESCRIPTION, $value);
+        return $this;
+    }
+
+    public function getProjectDescriptionAttribute(): ?string
+    {
+        return $this->getAttribute('meta')->get(Property::PROJECT_DESCRIPTION) ?? 0;
+    }
+    
+    public function setDigitalAssetsAttribute(?string $value): self
+    {
+        if ($value === null) {
+            return $this;
+        }
+        $this->getAttribute('meta')->set(Property::DIGITAL_ASSETS, $value);
+        return $this;
+    }
+
+    public function getDigitalAssetsAttribute(): ?string
+    {
+        return $this->getAttribute('meta')->get(Property::DIGITAL_ASSETS) ?? 0;
     }
 }
