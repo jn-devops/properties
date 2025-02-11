@@ -41,6 +41,7 @@ class Project extends Model
         'company_code',
         'appraised_lot_value',
         'total_sold',
+        'project_description',
     ];
 
     public function getConnectionName()

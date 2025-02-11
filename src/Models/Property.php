@@ -43,7 +43,6 @@ use Homeful\Common\Traits\HasMeta;
  * @property string $status
  * @property float $tcp
  * @property string $project_description
- * @property string $digital_assets
  *
  * @method int getKey()
  */
@@ -61,8 +60,6 @@ class Property extends Model
         'sku',
         'status',
         'tcp',
-        'project_description',
-        'digital_assets',
     ];
 
     public function getConnectionName()

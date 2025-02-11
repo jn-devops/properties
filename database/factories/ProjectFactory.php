@@ -22,6 +22,7 @@ class ProjectFactory extends Factory
             'company_code' => $this->faker->word(),
             'appraised_lot_value' => $this->faker->numberBetween(2000.0,5000.0),
             'total_sold' => $this->faker->numberBetween(50, 100),
+            'project_description' => $this->faker->word(),
         ];
     }
 }

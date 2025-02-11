@@ -16,7 +16,9 @@ class ProjectData extends Data
         public ?string $licenseDate,
         public ?string $company_code,
         public ?float $appraised_lot_value,
-        public ?string $address
+        public ?string $address,
+        public ?string $total_sold,
+        public ?string $project_description,
     ) {}
 
     public static function fromModel(Project $project): ProjectData
@@ -30,7 +32,9 @@ class ProjectData extends Data
             licenseDate: $project->licenseDate?->format('Y-m-d'),
             company_code: $project->company_code,
             appraised_lot_value: $project->appraised_lot_value,
-            address: $project->address ?? ''
+            address: $project->address ?? '',
+            total_sold: $project->total_sold ?? '',
+            project_description: $project->project_description ?? '',
         );
     }
 }

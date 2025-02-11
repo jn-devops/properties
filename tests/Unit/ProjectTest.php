@@ -21,6 +21,7 @@ test('project has attributes', function () {
         expect($project->company_code)->toBeString();
         expect($project->appraised_lot_value)->toBeFloat();
         expect($project->total_sold)->toBeInt();
+        expect($project->project_description)->toBeString();
     }
 });
 
@@ -37,6 +38,7 @@ test('project has data', function() {
         expect($data->licenseDate)->toBe($project->licenseDate->format('Y-m-d'));
         expect($data->company_code)->toBe($project->company_code);
         expect($data->appraised_lot_value)->toBe($project->appraised_lot_value);
+        expect($data->project_description)->toBe($project->project_description);
     }
 });
 

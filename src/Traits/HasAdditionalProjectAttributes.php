@@ -18,6 +18,7 @@ trait HasAdditionalProjectAttributes
     const COMPANY_CODE = 'company_code';
     const APPRAISED_LOT_VALUE = 'appraised_lot_value';
     const TOTAL_SOLD = 'total_sold';
+    const PROJECT_DESCRIPTION = 'project_description';
 
     public function setAddressAttribute(?string $value): self
     {
@@ -132,5 +133,17 @@ trait HasAdditionalProjectAttributes
     public function getTotalSoldAttribute(): ?int
     {
         return $this->getAttribute('meta')->get(Project::TOTAL_SOLD);
+    }
+
+    public function setProjectDescriptionAttribute(?string $value): self
+    {
+        $this->getAttribute('meta')->set(Project::PROJECT_DESCRIPTION, $value);
+
+        return $this;
+    }
+
+    public function getProjectDescriptionAttribute(): ?string
+    {
+        return $this->getAttribute('meta')->get(Project::PROJECT_DESCRIPTION);
     }
 }
