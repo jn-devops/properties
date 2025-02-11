@@ -2,6 +2,10 @@
 
 All notable changes to `properties` will be documented in this file.
 
+## v1.5.5 - 2025-02-11
+
+added field on project
+
 ## v1.5.4 - 2025-02-11
 
 added total_sold, project_description, and digital_assets in $fillables
