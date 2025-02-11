@@ -60,7 +60,9 @@ class Property extends Model
         'cluster',
         'sku',
         'status',
-        'tcp'
+        'tcp',
+        'project_description',
+        'digital_assets',
     ];
 
     public function getConnectionName()
