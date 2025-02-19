@@ -24,6 +24,10 @@ use Homeful\Common\Traits\HasMeta;
  * @property string $company_code
  * @property float $appraised_lot_value
  * @property int $total_sold
+ * @property string $company_name
+ * @property string $company_tin
+ * @property string $company_address
+ * @property string $pagibig_filing_site
  *
  * @method int getKey()
  */
@@ -42,6 +46,10 @@ class Project extends Model
         'appraised_lot_value',
         'total_sold',
         'project_description',
+        'company_name',
+        'company_tin',
+        'company_address',
+        'pagibig_filing_site'
     ];
 
     public function getConnectionName()

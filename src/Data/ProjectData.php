@@ -19,6 +19,7 @@ class ProjectData extends Data
         public ?string $address,
         public ?string $total_sold,
         public ?string $project_description,
+
     ) {}
 
     public static function fromModel(Project $project): ProjectData
