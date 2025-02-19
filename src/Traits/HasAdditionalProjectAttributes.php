@@ -20,6 +20,11 @@ trait HasAdditionalProjectAttributes
     const TOTAL_SOLD = 'total_sold';
     const PROJECT_DESCRIPTION = 'project_description';
 
+    const COMPANY_NAME ='company_name';
+    const COMPANY_TIN ='company_tin';
+    const COMPANY_ADDRESS = 'company_address';
+    const PAGIBIG_FILING_SITE = 'pagibig_filing_site';
+
     public function setAddressAttribute(?string $value): self
     {
         $this->getAttribute('meta')->set(Project::ADDRESS, $value);
@@ -145,5 +150,52 @@ trait HasAdditionalProjectAttributes
     public function getProjectDescriptionAttribute(): ?string
     {
         return $this->getAttribute('meta')->get(Project::PROJECT_DESCRIPTION);
+    }
+
+    public function setCompanyNameAttribute(?string $value): self
+    {
+        $this->getAttribute('meta')->set(Project::COMPANY_NAME, $value);
+
+        return $this;
+    }
+
+    public function getCompanyNameAttribute(): ?string
+    {
+        return $this->getAttribute('meta')->get(Project::COMPANY_NAME);
+    }
+
+    public function setCompanyTINAttribute(?string $value): self
+    {
+        $this->getAttribute('meta')->set(Project::COMPANY_TIN, $value);
+
+        return $this;
+    }
+
+    public function getCompanyTINAttribute(): ?string
+    {
+        return $this->getAttribute('meta')->get(Project::COMPANY_TIN);
+    }
+
+    public function setCompanyAddressAttribute(?string $value): self
+    {
+        $this->getAttribute('meta')->set(Project::COMPANY_ADDRESS, $value);
+
+        return $this;
+    }
+
+    public function getCompanyAddressAttribute(): ?string
+    {
+        return $this->getAttribute('meta')->get(Project::COMPANY_ADDRESS);
+    }
+    public function setPagIbigFilingSiteAttribute(?string $value): self
+    {
+        $this->getAttribute('meta')->set(Project::PAGIBIG_FILING_SITE, $value);
+
+        return $this;
+    }
+
+    public function getPagIbigFilingSiteAttribute(): ?string
+    {
+        return $this->getAttribute('meta')->get(Project::PAGIBIG_FILING_SITE);
     }
 }
