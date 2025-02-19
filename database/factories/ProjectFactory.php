@@ -27,6 +27,11 @@ class ProjectFactory extends Factory
             'company_address' => $this->faker->address(),
             'company_tin' => $this->faker->regexify('[0-9]{3}-[0-9]{3}-[0-9]{3}'),
             'pagibig_filing_site'=>$this->faker->address(),
+            'exec_position'=>$this->faker->word(),
+            'exec_signatory'=>$this->faker->word(),
+            'exec_tin'=>$this->faker->regexify('[0-9]{3}-[0-9]{3}-[0-9]{3}'),
+            'board_resolution_date'=>Carbon::parse($this->faker->date()),
+
         ];
     }
 }

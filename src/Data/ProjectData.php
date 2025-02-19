@@ -23,6 +23,10 @@ class ProjectData extends Data
         public ?string $company_tin,
         public ?string $company_address,
         public ?string $pagibig_filing_site,
+        public ?string $exec_postion,
+        public ?string $exec_signatory,
+        public ?string $exec_tin,
+        public ?string $board_resolution_date,
     ) {}
 
     public static function fromModel(Project $project): ProjectData
@@ -43,6 +47,10 @@ class ProjectData extends Data
             company_tin: $project->company_tin,
             company_address: $project->company_address,
             pagibig_filing_site: $project->pagibig_filing_site,
+            exec_postion: $project->exec_position,
+            exec_signatory: $project->exec_signatory,
+            exec_tin: $project->exec_tin,
+            board_resolution_date: $project->board_resolution_date?->format('Y-m-d'),
         );
     }
 }

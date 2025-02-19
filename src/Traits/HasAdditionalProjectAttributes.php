@@ -25,6 +25,11 @@ trait HasAdditionalProjectAttributes
     const COMPANY_ADDRESS = 'company_address';
     const PAGIBIG_FILING_SITE = 'pagibig_filing_site';
 
+    const EXEC_POSITION = 'exec_position';
+    const EXEC_SIGNATORY = 'exec_signatory';
+    const EXEC_TIN = 'exec_tin';
+    const BOARD_RESOLUTION_DATE = 'board_resolution_date';
+
     public function setAddressAttribute(?string $value): self
     {
         $this->getAttribute('meta')->set(Project::ADDRESS, $value);
@@ -198,4 +203,54 @@ trait HasAdditionalProjectAttributes
     {
         return $this->getAttribute('meta')->get(Project::PAGIBIG_FILING_SITE);
     }
+
+    public function setExecPositionAttribute(?string $value): self
+    {
+        $this->getAttribute('meta')->set(Project::EXEC_POSITION, $value);
+
+        return $this;
+    }
+
+    public function getExecPositionAttribute(): ?string
+    {
+        return $this->getAttribute('meta')->get(Project::EXEC_POSITION);
+    }
+
+    public function setExecSignatoryAttribute(?string $value): self
+    {
+        $this->getAttribute('meta')->set(Project::EXEC_SIGNATORY, $value);
+
+        return $this;
+    }
+
+    public function getExecSignatoryAttribute(): ?string
+    {
+        return $this->getAttribute('meta')->get(Project::EXEC_SIGNATORY);
+    }
+
+    public function setExecTINAttribute(?string $value): self
+    {
+        $this->getAttribute('meta')->set(Project::EXEC_TIN, $value);
+
+        return $this;
+    }
+
+    public function getExecTINAttribute(): ?string
+    {
+        return $this->getAttribute('meta')->get(Project::EXEC_TIN);
+    }
+
+    public function setBoardResolutionDateAttribute(?Carbon $value): self
+    {
+        $this->getAttribute('meta')->set(Project::BOARD_RESOLUTION_DATE, $value?->serialize());
+        return $this;
+    }
+
+    public function getBoardResolutionDateAttribute(): ?Carbon
+    {
+        $serialized = $this->getAttribute('meta')->get(Project::BOARD_RESOLUTION_DATE);
+        return $serialized ? Carbon::fromSerialized($serialized): null;
+    }
+
+
 }
