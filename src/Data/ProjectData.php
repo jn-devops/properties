@@ -39,10 +39,10 @@ class ProjectData extends Data
             address: $project->address ?? '',
             total_sold: $project->total_sold ?? '',
             project_description: $project->project_description ?? '',
-            company_name: $project->company_name?? '',
-            company_tin: $project->company_tin?? '',
-            company_address: $project->company_address?? '',
-            pagibig_filing_site: $project->pagibig_filing_site?? '',
+            company_name: $project->company_name,
+            company_tin: $project->company_tin,
+            company_address: $project->company_address,
+            pagibig_filing_site: $project->pagibig_filing_site,
         );
     }
 }
