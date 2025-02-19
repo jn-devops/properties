@@ -19,7 +19,10 @@ class ProjectData extends Data
         public ?string $address,
         public ?string $total_sold,
         public ?string $project_description,
-
+        public ?string $company_name,
+        public ?string $company_tin,
+        public ?string $company_address,
+        public ?string $pagibig_filing_site,
     ) {}
 
     public static function fromModel(Project $project): ProjectData
@@ -36,6 +39,10 @@ class ProjectData extends Data
             address: $project->address ?? '',
             total_sold: $project->total_sold ?? '',
             project_description: $project->project_description ?? '',
+            company_name: $project->company_name?? '',
+            company_tin: $project->company_tin?? '',
+            company_address: $project->company_address?? '',
+            pagibig_filing_site: $project->pagibig_filing_site?? '',
         );
     }
 }
