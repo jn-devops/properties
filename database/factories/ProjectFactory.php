@@ -31,7 +31,6 @@ class ProjectFactory extends Factory
             'exec_signatory'=>$this->faker->word(),
             'exec_tin'=>$this->faker->regexify('[0-9]{3}-[0-9]{3}-[0-9]{3}'),
             'board_resolution_date'=>Carbon::parse($this->faker->date()),
-
         ];
     }
 }
