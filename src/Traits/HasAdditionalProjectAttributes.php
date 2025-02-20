@@ -245,12 +245,10 @@ trait HasAdditionalProjectAttributes
         $this->getAttribute('meta')->set(Project::BOARD_RESOLUTION_DATE, $value?->serialize());
         return $this;
     }
-
     public function getBoardResolutionDateAttribute(): ?Carbon
     {
-        $serialized = $this->getAttribute('meta')->get(Project::BOARD_RESOLUTION_DATE);
-        return $serialized ? Carbon::fromSerialized($serialized): null;
+        $date = $this->getAttribute('meta')->get(Project::BOARD_RESOLUTION_DATE);
+        return $date ? Carbon::parse($date) : null;
     }
-
 
 }
