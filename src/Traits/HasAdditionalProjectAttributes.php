@@ -95,18 +95,20 @@ trait HasAdditionalProjectAttributes
         return $this->getAttribute('meta')->get(Project::LICENSE_NUMBER);
     }
 
-    public function setLicenseDateAttribute(?Carbon $value): self
+    public function setLicenseDateAttribute($value): self
     {
-        $this->getAttribute('meta')->set(Project::LICENSE_DATE, $value?->serialize());
+        if (is_string($value)) {
+            $value = Carbon::parse($value);
+        }
 
+        $this->getAttribute('meta')->set(Project::LICENSE_DATE, $value);
         return $this;
     }
 
     public function getLicenseDateAttribute(): ?Carbon
     {
-        $serialized = $this->getAttribute('meta')->get(Project::LICENSE_DATE);
-
-        return $serialized ? Carbon::fromSerialized($serialized): null;
+        $date = $this->getAttribute('meta')->get(Project::LICENSE_DATE);
+        return $date ? Carbon::parse($date) : null;
     }
 
     public function setCompanyCodeAttribute(?string $value): self
