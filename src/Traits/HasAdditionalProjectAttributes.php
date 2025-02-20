@@ -240,8 +240,12 @@ trait HasAdditionalProjectAttributes
         return $this->getAttribute('meta')->get(Project::EXEC_TIN);
     }
 
-    public function setBoardResolutionDateAttribute(?Carbon $value): self
+    public function setBoardResolutionDateAttribute($value): self
     {
+        if (is_string($value)) {
+            $value = Carbon::parse($value);
+        }
+
         $this->getAttribute('meta')->set(Project::BOARD_RESOLUTION_DATE, $value?->serialize());
         return $this;
     }
