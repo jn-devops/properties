@@ -30,6 +30,7 @@ test('project has attributes', function () {
         expect($project->exec_signatory)->toBeString();
         expect($project->exec_tin)->toBeString();
         expect($project->board_resolution_date)->toBeInstanceOf(Carbon::class);
+
     }
 });
 

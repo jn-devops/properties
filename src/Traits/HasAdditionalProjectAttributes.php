@@ -95,35 +95,7 @@ trait HasAdditionalProjectAttributes
         return $this->getAttribute('meta')->get(Project::LICENSE_NUMBER);
     }
 
-    public function setLicenseDateAttribute($value): self
-    {
-        if ($value instanceof Carbon) {
-            $serialized = serialize($value);
-        } elseif (is_string($value)) {
-            $serialized = serialize(Carbon::parse($value));
-        } else {
-            $serialized = null;
-        }
 
-        $this->getAttribute('meta')->set(Project::LICENSE_DATE, $serialized);
-        return $this;
-    }
-
-    public function getLicenseDateAttribute(): ?Carbon
-    {
-        $date = $this->getAttribute('meta')->get(Project::LICENSE_DATE);
-
-        if (is_string($date)) {
-            try {
-                $unserialized = unserialize($date);
-                return $unserialized instanceof Carbon ? $unserialized : null;
-            } catch (\Exception $e) {
-                return null;
-            }
-        }
-
-        return null;
-    }
 
 
     public function setCompanyCodeAttribute(?string $value): self
@@ -260,22 +232,30 @@ trait HasAdditionalProjectAttributes
     public function setBoardResolutionDateAttribute($value): self
     {
         if ($value instanceof Carbon) {
-            $serialized = serialize($value);
+            $value = serialize($value);
         } elseif (is_string($value)) {
-            $serialized = serialize(Carbon::parse($value));
+            try {
+                $value = serialize(Carbon::parse($value));
+            } catch (\Exception $e) {
+                $value = null;
+            }
         } else {
-            $serialized = null;
+            $value = null;
         }
 
-        $this->getAttribute('meta')->set(Project::BOARD_RESOLUTION_DATE, $serialized);
+        $this->meta[Project::BOARD_RESOLUTION_DATE] = $value;
         return $this;
     }
 
     public function getBoardResolutionDateAttribute(): ?Carbon
     {
-        $date = $this->getAttribute('meta')->get(Project::BOARD_RESOLUTION_DATE);
+        $date = $this->meta[Project::BOARD_RESOLUTION_DATE] ?? null;
 
-        if (is_string($date)) {
+        if ($date instanceof Carbon) {
+            return $date;
+        }
+
+        if (is_string($date) && str_starts_with($date, 'O:')) {
             try {
                 $unserialized = unserialize($date);
                 return $unserialized instanceof Carbon ? $unserialized : null;
@@ -286,5 +266,44 @@ trait HasAdditionalProjectAttributes
 
         return null;
     }
+
+    public function setLicenseDateAttribute($value): self
+    {
+        if ($value instanceof Carbon) {
+            $value = serialize($value);
+        } elseif (is_string($value)) {
+            try {
+                $value = serialize(Carbon::parse($value));
+            } catch (\Exception $e) {
+                $value = null;
+            }
+        } else {
+            $value = null;
+        }
+
+        $this->meta[Project::LICENSE_DATE] = $value;
+        return $this;
+    }
+
+    public function getLicenseDateAttribute(): ?Carbon
+    {
+        $date = $this->meta[Project::LICENSE_DATE] ?? null;
+
+        if ($date instanceof Carbon) {
+            return $date;
+        }
+
+        if (is_string($date) && str_starts_with($date, 'O:')) {
+            try {
+                $unserialized = unserialize($date);
+                return $unserialized instanceof Carbon ? $unserialized : null;
+            } catch (\Exception $e) {
+                return null;
+            }
+        }
+
+        return null;
+    }
+
 
 }
