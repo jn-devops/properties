@@ -97,19 +97,34 @@ trait HasAdditionalProjectAttributes
 
     public function setLicenseDateAttribute($value): self
     {
-        if (is_string($value)) {
-            $value = Carbon::parse($value);
+        if ($value instanceof Carbon) {
+            $serialized = serialize($value);
+        } elseif (is_string($value)) {
+            $serialized = serialize(Carbon::parse($value));
+        } else {
+            $serialized = null;
         }
 
-        $this->getAttribute('meta')->set(Project::LICENSE_DATE, $value);
+        $this->getAttribute('meta')->set(Project::LICENSE_DATE, $serialized);
         return $this;
     }
 
     public function getLicenseDateAttribute(): ?Carbon
     {
         $date = $this->getAttribute('meta')->get(Project::LICENSE_DATE);
-        return $date ? Carbon::parse($date) : null;
+
+        if (is_string($date)) {
+            try {
+                $unserialized = unserialize($date);
+                return $unserialized instanceof Carbon ? $unserialized : null;
+            } catch (\Exception $e) {
+                return null;
+            }
+        }
+
+        return null;
     }
+
 
     public function setCompanyCodeAttribute(?string $value): self
     {
@@ -244,17 +259,32 @@ trait HasAdditionalProjectAttributes
 
     public function setBoardResolutionDateAttribute($value): self
     {
-        if (is_string($value)) {
-            $value = Carbon::parse($value);
+        if ($value instanceof Carbon) {
+            $serialized = serialize($value);
+        } elseif (is_string($value)) {
+            $serialized = serialize(Carbon::parse($value));
+        } else {
+            $serialized = null;
         }
 
-        $this->getAttribute('meta')->set(Project::BOARD_RESOLUTION_DATE, $value);
+        $this->getAttribute('meta')->set(Project::BOARD_RESOLUTION_DATE, $serialized);
         return $this;
     }
+
     public function getBoardResolutionDateAttribute(): ?Carbon
     {
         $date = $this->getAttribute('meta')->get(Project::BOARD_RESOLUTION_DATE);
-        return $date ? Carbon::parse($date) : null;
+
+        if (is_string($date)) {
+            try {
+                $unserialized = unserialize($date);
+                return $unserialized instanceof Carbon ? $unserialized : null;
+            } catch (\Exception $e) {
+                return null;
+            }
+        }
+
+        return null;
     }
 
 }
