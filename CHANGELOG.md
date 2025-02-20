@@ -2,6 +2,10 @@
 
 All notable changes to `properties` will be documented in this file.
 
+## v1.5.11 - 2025-02-20
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.10...v1.5.11
+
 ## v1.5.10 - 2025-02-20
 
 **Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.9...v1.5.10
