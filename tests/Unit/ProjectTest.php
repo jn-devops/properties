@@ -22,6 +22,15 @@ test('project has attributes', function () {
         expect($project->appraised_lot_value)->toBeFloat();
         expect($project->total_sold)->toBeInt();
         expect($project->project_description)->toBeString();
+        expect($project->company_name)->toBeString();
+        expect($project->company_tin)->toBeString();
+        expect($project->company_address)->toBeString();
+        expect($project->pagibig_filing_site)->toBeString();
+        expect($project->exec_position)->toBeString();
+        expect($project->exec_signatory)->toBeString();
+        expect($project->exec_tin)->toBeString();
+        expect($project->board_resolution_date)->toBeInstanceOf(Carbon::class);
+
         expect($project->filing_site)->toBeString();
     }
 });
@@ -40,6 +49,14 @@ test('project has data', function() {
         expect($data->company_code)->toBe($project->company_code);
         expect($data->appraised_lot_value)->toBe($project->appraised_lot_value);
         expect($data->project_description)->toBe($project->project_description);
+        expect($data->company_name)->toBe($project->company_name);
+        expect($data->company_tin)->toBe($project->company_tin);
+        expect($data->company_address)->toBe($project->company_address);
+        expect($data->pagibig_filing_site)->toBe($project->pagibig_filing_site);
+        expect($data->exec_postion)->toBe($project->exec_position);
+        expect($data->exec_signatory)->toBe($project->exec_signatory);
+        expect($data->exec_tin)->toBe($project->exec_tin);
+        expect($data->board_resolution_date)->toBe($project->board_resolution_date->format('Y-m-d'));
         expect($data->filing_site)->toBe($project->filing_site);
     }
 });

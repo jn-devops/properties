@@ -2,6 +2,42 @@
 
 All notable changes to `properties` will be documented in this file.
 
+## v1.5.14 - 2025-02-20
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.13...v1.5.14
+
+## v1.5.13 - 2025-02-20
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.12...v1.5.13
+
+## v1.5.12 - 2025-02-20
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.11...v1.5.12
+
+## v1.5.11 - 2025-02-20
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.10...v1.5.11
+
+## v1.5.10 - 2025-02-20
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.9...v1.5.10
+
+## v1.5.9 - 2025-02-20
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.8...v1.5.9
+
+## v1.5.8 - 2025-02-20
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.7...v1.5.8
+
+## v1.5.7 - 2025-02-19
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.6...v1.5.7
+
+## v1.5.6 - 2025-02-19
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.5...v1.5.6
+
 ## v1.5.5 - 2025-02-11
 
 added field on project

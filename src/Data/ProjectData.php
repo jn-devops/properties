@@ -19,7 +19,18 @@ class ProjectData extends Data
         public ?string $address,
         public ?string $total_sold,
         public ?string $project_description,
+<<<<<<< HEAD
         public ?string $filing_site,
+=======
+        public ?string $company_name,
+        public ?string $company_tin,
+        public ?string $company_address,
+        public ?string $pagibig_filing_site,
+        public ?string $exec_postion,
+        public ?string $exec_signatory,
+        public ?string $exec_tin,
+        public ?string $board_resolution_date,
+>>>>>>> ed82e34fc53c03dd3dbabbee03f38c1a25b3b374
     ) {}
 
     public static function fromModel(Project $project): ProjectData
@@ -36,7 +47,18 @@ class ProjectData extends Data
             address: $project->address ?? '',
             total_sold: $project->total_sold ?? '',
             project_description: $project->project_description ?? '',
+<<<<<<< HEAD
             filing_site: $project->filing_site ?? '',
+=======
+            company_name: $project->company_name,
+            company_tin: $project->company_tin,
+            company_address: $project->company_address,
+            pagibig_filing_site: $project->pagibig_filing_site,
+            exec_postion: $project->exec_position,
+            exec_signatory: $project->exec_signatory,
+            exec_tin: $project->exec_tin,
+            board_resolution_date: $project->board_resolution_date?->format('Y-m-d'),
+>>>>>>> ed82e34fc53c03dd3dbabbee03f38c1a25b3b374
         );
     }
 }
