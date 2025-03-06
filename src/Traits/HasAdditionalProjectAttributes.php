@@ -19,6 +19,7 @@ trait HasAdditionalProjectAttributes
     const APPRAISED_LOT_VALUE = 'appraised_lot_value';
     const TOTAL_SOLD = 'total_sold';
     const PROJECT_DESCRIPTION = 'project_description';
+    const FILING_SITE = 'filing_site';
 
     public function setAddressAttribute(?string $value): self
     {
@@ -145,5 +146,16 @@ trait HasAdditionalProjectAttributes
     public function getProjectDescriptionAttribute(): ?string
     {
         return $this->getAttribute('meta')->get(Project::PROJECT_DESCRIPTION);
+    }
+
+    public function setFilingSiteAttribute(?string $value): self
+    {
+        $this->getAttribute('meta')->set(Project::FILING_SITE, $value);
+
+        return $this;
+    }
+    public function getFilingSiteAttribute(): ?string
+    {
+        return $this->getAttribute('meta')->get(Project::FILING_SITE);
     }
 }
