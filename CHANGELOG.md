@@ -2,6 +2,58 @@
 
 All notable changes to `properties` will be documented in this file.
 
+## v1.5.15 - 2025-03-06
+
+added filing_site field in project
+
+## v1.5.14 - 2025-02-20
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.13...v1.5.14
+
+## v1.5.13 - 2025-02-20
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.12...v1.5.13
+
+## v1.5.12 - 2025-02-20
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.11...v1.5.12
+
+## v1.5.11 - 2025-02-20
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.10...v1.5.11
+
+## v1.5.10 - 2025-02-20
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.9...v1.5.10
+
+## v1.5.9 - 2025-02-20
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.8...v1.5.9
+
+## v1.5.8 - 2025-02-20
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.7...v1.5.8
+
+## v1.5.7 - 2025-02-19
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.6...v1.5.7
+
+## v1.5.6 - 2025-02-19
+
+**Full Changelog**: https://github.com/jn-devops/properties/compare/v1.5.5...v1.5.6
+
+## v1.5.5 - 2025-02-11
+
+added field on project
+
+## v1.5.4 - 2025-02-11
+
+added total_sold, project_description, and digital_assets in $fillables
+
+## v1.5.3 - 2025-02-10
+
+added total_sold on project; added project_description and digital_assets on property
+
 ## v1.5.2 - 2025-01-27
 
 dynamic configuration of connection and table

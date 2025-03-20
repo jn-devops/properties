@@ -55,7 +55,9 @@ trait HasAdditionalPropertyAttributes
             'parking_slots',
             'carports',
             'project_code',
-            'tcp'
+            'tcp',
+            'project_description',
+            'digital_assets',
         ]);
 
         $this->appends = array_merge($this->appends, [
@@ -79,7 +81,9 @@ trait HasAdditionalPropertyAttributes
             'parking_slots',
             'carports',
             'project_code',
-            'tcp'
+            'tcp',
+            'project_description',
+            'digital_assets',
         ]);
     }
 

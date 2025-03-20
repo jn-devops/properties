@@ -42,6 +42,7 @@ use Homeful\Common\Traits\HasMeta;
  * @property Project $project
  * @property string $status
  * @property float $tcp
+ * @property string $project_description
  *
  * @method int getKey()
  */
@@ -58,7 +59,7 @@ class Property extends Model
         'cluster',
         'sku',
         'status',
-        'tcp'
+        'tcp',
     ];
 
     public function getConnectionName()
